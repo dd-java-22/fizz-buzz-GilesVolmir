@@ -1,21 +1,20 @@
 package edu.cnm.deepdive;
 
-public class FizzBuzz {
+import java.util.EnumSet;
+import java.util.Set;
 
+public enum FizzBuzz {
+  FIZZ, BUZZ;
 
-
-  public String fizzBuzz(int position) {
-    String result = "";
+  public static Set<FizzBuzz> fizzBuzz(int position) {
+    Set<FizzBuzz> result = EnumSet.noneOf(FizzBuzz.class);
     boolean factorOf3 = position % 3 == 0;
     boolean factorOf5 = position % 5 == 0;
     if (factorOf3) {
-      result += "Fizz";
+      result.add(FIZZ);
     }
     if (factorOf5) {
-      result += "Buzz";
-    }
-    if (result.isEmpty()) {
-      result = Integer.toString(position);
+      result.add(BUZZ);
     }
     return result;
   }
